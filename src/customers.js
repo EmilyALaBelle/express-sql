@@ -14,7 +14,7 @@ export async function getAllCustomers (req, res) {
 export async function getCustomerById (req, res) {
     const { customerId } = req.params
     const pool = new Pool(creds)
-    const customers = await pool.query(`SELECT * FROM customers WHERE customerId=${customerId}`)
+    const customers = await pool.query(`SELECT * FROM customers WHERE customerid=${customerId}`)
         .catch(err => res.status(500).send(err))
     res.send(customers.rows)
     pool.end()
